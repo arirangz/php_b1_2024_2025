@@ -1,6 +1,7 @@
 <?php require_once "templates/header.php" ?>
 <?php 
     if (isset($_POST["email"]) && isset($_POST["password"])) {
+        //Attention: ceci est pour apprentissage uniquement, à ne pas reproduire sur une app réelle
         if ($_POST["email"] === "test@gmail.com" && $_POST["password"] === "ABC123" ) {
             $isAllowed = true;
         } else {
@@ -8,10 +9,7 @@
         }
     } 
 ?>
-
-
 <div class="container col-xxl-8 px-4 py-5">
-
     <form method="post">
         <?php if (isset($isAllowed)) { ?>
             <?php if ($isAllowed === true) { ?>
