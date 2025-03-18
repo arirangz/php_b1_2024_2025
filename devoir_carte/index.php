@@ -24,6 +24,10 @@
             <label for="couleur_fond">Couleur de fond</label>
             <input type="color" name="couleur_fond" id="couleur_fond">
         </p>
+        <p>
+            <label for="couleur_texte">Couleur du texte</label>
+            <input type="color" name="couleur_texte" id="couleur_texte">
+        </p>
         <input type="submit" value="Envoyer">
     </form>
 </body>
