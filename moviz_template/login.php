@@ -6,6 +6,10 @@ require_once "templates/header.php";
 <?php 
     if (isset($_POST["email"]) && isset($_POST["password"])) {
         $isAllowed = loginUser($_POST["email"], $_POST["password"]);
+
+        if ($isAllowed) {
+            header("Location: profile.php");
+        }
     } 
 ?>
 <div class="container col-xxl-8 px-4 py-5">
@@ -17,7 +21,7 @@ require_once "templates/header.php";
                 </div>
             <?php } else {?>
                 <div class="alert alert-danger">
-                    Accès refusé
+                    Email ou mot de passe incorrecte.
                 </div>
             <?php } ?>
         <?php } ?>

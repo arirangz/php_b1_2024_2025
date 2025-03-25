@@ -1,3 +1,9 @@
+<?php 
+
+session_start();
+require_once __DIR__. "/../libs/user.php";
+?>
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -21,6 +27,11 @@
         <li><a href="index.php" class="nav-link px-2 link-secondary">Home</a></li>
         <li><a href="about.php" class="nav-link px-2">About</a></li>
         <li><a href="contact.php" class="nav-link px-2">Contact</a></li>
+
+        <?php if (isLoggedIn()) { ?>
+          <li><a href="profile.php" class="nav-link px-2">Profile</a></li>
+        <?php } ?>
+
       </ul>
 
       <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" role="search">
@@ -28,8 +39,14 @@
       </form>
 
       <div class="col-md-3 text-end">
-        <a href="login.php" class="btn btn-outline-primary me-2">Login</a>
-        <button type="button" class="btn btn-primary">Sign-up</button>
+
+        <?php if (isLoggedIn()) { ?>
+          <a href="logout.php" class="btn btn-outline-primary me-2">Logout</a>
+        <?php } else { ?>
+          <a href="login.php" class="btn btn-outline-primary me-2">Login</a>
+          <button type="button" class="btn btn-primary">Sign-up</button>
+        <?php } ?>
+
       </div>
     </header>
   </div>
