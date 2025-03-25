@@ -1,11 +1,12 @@
 <?php 
 require_once "templates/header.php";
 require_once "libs/movie.php";
+require_once "libs/pdo.php";
 
 $error = false;
-if (isset($_GET["index"])) {
-    $index = (int)$_GET["index"];
-    $movie = getMovieByIndex($index);
+if (isset($_GET["id"])) {
+    $id = (int)$_GET["id"];
+    $movie = getMovieById($pdo, $id);
 } else {
     $error = true;
 }

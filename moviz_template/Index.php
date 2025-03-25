@@ -1,8 +1,9 @@
 <?php 
 require_once "templates/header.php";
+require_once "libs/pdo.php";
 require_once "libs/movie.php";
 
-$movies = getMovies();
+$movies = getMovies($pdo);
 ?>
 
 <div class="container col-xxl-8 px-4 py-5">
@@ -27,7 +28,7 @@ $movies = getMovies();
                 <img src="<?=$movie["image"]?>" class="card-img-top" alt="<?=htmlspecialchars($movie["title"]) ?>">
                 <div class="card-body">
                     <h5 class="card-title"><?=htmlspecialchars($movie["title"]) ?></h5>
-                    <a href="movie_details.php?index=<?=$index?>" class="btn btn-primary">Voir la fiche</a>
+                    <a href="movie_details.php?id=<?=$movie["id"]?>" class="btn btn-primary">Voir la fiche</a>
                 </div>
             </div>
       </div>
